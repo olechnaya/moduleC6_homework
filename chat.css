@@ -1,0 +1,237 @@
+
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+  }
+
+  .main {
+    width: 100%;
+    max-width: 900px;
+    padding: 15px;
+    margin: auto;
+
+  }
+.chatbox {
+    width: auto;
+    overflow: hidden;
+    height: 100%;
+}
+
+.chat-area .modal-dialog-scrollable {
+    height: 100% !important;
+}
+
+.modal-dialog-scrollable .modal-content {
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.chat-area .modal-content {
+    border: none;
+    border-radius: 0;
+    outline: 0;
+    height: 100%;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+.msg-head {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-dialog-scrollable .modal-body {
+    overflow-y: auto;
+}
+
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+.msg-body ul {
+    overflow: hidden;
+}
+
+.msg-body ul li.sender {
+    display: block;
+    width: 100%;
+    position: relative;
+    text-align: right;
+}
+
+.msg-body ul li {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.msg-body ul li.sender:before {
+    display: block;
+    clear: both;
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  
+  border-right:10px solid #f5f5f5; 
+}
+
+.msg-body ul li.sender p {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    padding: 15px;
+    background: #f5f5f5;
+    display: inline-block;
+    border-radius: 10px 0 10px 10px;
+    margin-bottom: 0;
+}
+
+.msg-body ul li.reply {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.msg-body ul li.reply:before {
+    display: block;
+    clear: both;
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #4b7bec;
+}
+
+.msg-body ul li.reply p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    padding: 15px;
+    background: #4b7bec;
+    display: inline-block;
+    border-radius: 0 10px 10px 10px;
+    margin-bottom: 0;
+}
+
+.msg-body ul li.reply:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+
+send-box {
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.send-box .form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.send-box .form-control {
+    display: block;
+    width: 84%;
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #222;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.chat-area .form-control {
+    display: block;
+    width: 80%;
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #222;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.msg-head h3 {
+    color: #222;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.msg-head p {
+    color: #343434;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+
+.send-box {
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.send-box button.btn-primary {
+    border: none;
+    background: #3867d6;
+    padding: 0.375rem 5px;
+    color: #fff;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    font-weight: 400;
+    width: 24%;
+    margin-left: 1%;
+}
+
+.send-box button.btn-primary svg{
+    margin-right: 4px;
+}
+
+svg {
+    margin-top: -3px;
+}
