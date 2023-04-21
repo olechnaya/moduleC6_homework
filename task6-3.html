@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="col-1">
-                          <button class="btn btn-outline-secondary" type="button" id="btnReconnect">
+                          <button class="btn btn-link" type="button" id="btnReconnect">
                             <svg class="bi bi-arrow-clockwise" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                               xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd"
@@ -70,7 +70,7 @@
                     </svg>
     Гео-локация
                   </button>               
-                    
+                  <button class="btn btn-light j-btn-close" id="btnClose">Закрыть соединение</button>
               </div>
                 </div>
             </div>
@@ -99,11 +99,16 @@
 
       wS.onopen = function (e) {
         console.log('CONNECTED');
+        btnSendMsg.classList.remove("disabled")
       }
       wS.onclose = function (e) {
         console.log('DISCONNECTED');
+        btnSendMsg.classList.add("disabled")
       }
       wS.onmessage = function (e) {
+       if (e.data.indexOf(".") == 2 
+          && e.data.indexOf(',') > -1 
+          && e.data.length == 21) return;
         writeToScreen(`${e.data}`, true);
       }
       wS.onerror = function (e) {
@@ -112,27 +117,16 @@
     }
 
     function writeToScreen(message,isReply) {
-      let liClassName = isReply ? 'reply' : 'sender'
-      /*<li class="sender">
-        <p> Hey, Are you there? </p>
-                            </li>
-                            
-                            <li class="reply">
-                                <p>How are you?</p>
-                            </li>  */  
-      //let pBlock = document.createElement('li', { 'class': 'test' });
-     // pBlock.innerHTML = message;
-     // html = `<li class="${isReply ? 'reply' : 'sender'}"><p>${message}</p></li>`
-     // output.innerHtml += html;
+      let liClassName = isReply ? 'reply' : 'sender';    
+      
       let li = document.createElement("li");
       li.classList.add(liClassName)
-      
+        
       let p = document.createElement("p");
       p.innerHTML = message;
-      
+        
       li.appendChild(p);
       output.appendChild(li);
-
     }
 
     btnReconnect.addEventListener('click', () => {
@@ -150,10 +144,19 @@
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
           const { coords } = position;
-          console.log(coords.latitude, coords.longitude);
+          const geoLink = `https://www.openstreetmap.org/#map=14/${coords.latitude}/${coords.longitude}`;
+          const geoLinkMessage = `<a href="${geoLink}">Гео-позиция</a>`;
+          writeToScreen(geoLinkMessage, false);  
+          wS.send([coords.latitude, coords.longitude])       
         });
+        
       }
     })
+
+    btnClose.addEventListener('click', () => {
+      wS.close();
+      wS = null;
+    });
    
   </script>
 </body>
