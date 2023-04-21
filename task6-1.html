@@ -1,0 +1,53 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Кнопка</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="get-image.css">
+    <style>
+        .btn-container {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto  ;
+        }
+        svg {
+            margin-top: -5px;
+        }
+        .bi-arrow-down-left-circle-fill {
+            display: none;
+        }
+        .btn--filled .bi-arrow-down-left-circle-fill {
+            display: inline-block;
+        }
+        .btn--filled .bi-arrow-down-left-circle {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-center">
+    <main class="btn-container">
+        <button class="btn btn-lg btn-primary svg-arrow" id="SubmitBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" 
+            class="bi bi-arrow-down-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904-2.854a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768l4.096-4.097z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
+              fill="currentColor" 
+              class="bi bi-arrow-down-left-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-5.904-2.803a.5.5 0 1 1 .707.707L6.707 10h2.768a.5.5 0 0 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.525a.5.5 0 0 1 1 0v2.768l4.096-4.096z"/>
+              </svg>
+            SVG Кнопка</button>
+    </main>
+    <script>
+        const btn = document.querySelector('.svg-arrow');
+
+        btn.addEventListener('click', () => {
+        btn.classList.toggle('btn--filled');
+        });
+    </script>
+</body>
+</html>
